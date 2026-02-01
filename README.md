@@ -21,6 +21,7 @@
 - Importation depuis un dossier contenant les 4 fichiers texte (ventes 2019–2022 par continent)  
 - Importation de la table pays–continent (2 colonnes : Pays, Continent)  
 [Imgur](https://imgur.com/ryrRvzw)
+[Imgur](https://imgur.com/uxEA3LL)
 
 **Combinaison et nettoyage (Power Query)**  
 - Combinaison des 4 tables de ventes (“Afrique”, “Europe”, “Asie”, “Amérique”) → structure identique (Date, Pays, Qte, Prix unitaire)
@@ -31,17 +32,19 @@
   - Promotion de la première ligne comme en-tête  
 ##### Nettoyage des données  
  ---
-![Nettoyage des données brutes](https://github.com/AzizivanCoulibaly/BI-Data-Visualisation-Analyse-de-ventes-/blob/c65ccb32c8211001890bcd3ff88ebf8a807e5114/Nettoyage%20%26%20transformation%20%26%20combinaison%20des%20fichiers.JPG)
+[Imgur](https://imgur.com/Sfa9BqP) 
  ---
+ [Imgur](https://imgur.com/XZTw9XK) 
 ![Nettoyage pays-continent](
 https://raw.githubusercontent.com/azizivancoulibaly/BI-Data-Visualisation-Analyse-de-ventes-/Images/Nettoyage%20table%20pays-continent.JPG)
 
-**Chargement dans Power Pivot**  
+**Chargement des requêtes dans Power Pivot**  
 - Les données ( 4M de lignes) sont **chargées uniquement en connexion** puis ** Ajouter au modèle de donnée* pour éviter de saturer Excel  
 - Les tables utilisées dans le modèle :  
   - Table de faits = Ventes consolidées  
   - Table de dimension = Pays–Continent 
-##### Chargement dans Power Pivo
+##### Chargement des requêtes dans Power Pivot
+[Imgur](https://imgur.com/qDMLg6c) 
 ![Chargement dans Power Pivo](https://github.com/AzizivanCoulibaly/AZIZ-COULIBALY/blob/a7ddde83e127e2a109102c9e1e76cc18256fb176/Images/Charger%20au%20mode%CC%80le%20de%20donne%CC%81e%20power%20pivot.JPG
 )
 **Table calendrier (Power Pivot)**  
@@ -50,6 +53,8 @@ https://raw.githubusercontent.com/azizivancoulibaly/BI-Data-Visualisation-Analys
 - Évite d’ajouter des colonnes calculées dans la table de faits; une nouvelle colonne implique qu'elle s'étende sur 4 million de ligne
 - Ajout d'une colonne semestre pour affiner les analyses
 ##### Table Calendrier
+[Imgur](https://imgur.com/2bqZsAC)
+[Imgur](https://imgur.com/8ywt3ZP)
 ![Table Calendrier](https://github.com/AzizivanCoulibaly/AZIZ-COULIBALY/blob/b06678e3036d517e3cb03a2472ae2e39ad90de49/Images/Ajout%20colonne%20semestre.JPG)
 
 **Modélisation relationnelle**  
@@ -57,6 +62,7 @@ https://raw.githubusercontent.com/azizivancoulibaly/BI-Data-Visualisation-Analys
   - Connectée à la **Table Date** (clé = Date)  
   - Connectée à la **Table Pays–Continent** (clé = Pays)  
 ##### Modélisation des données
+[Imgur](https://imgur.com/0dGIAjd)
 ![Modélisation des données](https://github.com/AzizivanCoulibaly/AZIZ-COULIBALY/blob/0aea8fe9e45bf766d3d50ea07db427a8012b6225/Images/Mode%CC%80le%20de%20donne%CC%81e.JPG)
 
 **Création de mesures (DAX)**  
@@ -67,8 +73,17 @@ https://raw.githubusercontent.com/azizivancoulibaly/BI-Data-Visualisation-Analys
 
 **Analyse (Excel & Power BI)**  
 - Analyse via Tableaux Croisés Dynamiques (Excel) et réponse aux problématiques métiers (15 Questions)
-##### Questions et réponses  
+##### Questions et réponses (Métier) 
+Q1,Q2,Q3 [Imgur](https://imgur.com/gN7z9k1) 
+Q4, Q5 [Imgur](https://imgur.com/Ypr2t7s)
+Q6, Q7 [Imgur](https://imgur.com/9aJNIlW)
+Q8, Q9 [Imgur](https://imgur.com/fpWWSCC)
+Q10, Q11 [Imgur](https://imgur.com/uTb7K3t) 
+Q12, Q13 [Imgur](https://imgur.com/cam2UTu) 
+Q14, Q15 [Imgur](https://imgur.com/VlLU4Xz)
+
 [🌐 Accéder aux analyses excel](https://drive.google.com/drive/folders/1wVMY45d3gs_bTIdUYqQ7uSHOWxGzJt9-?usp=share_link)
+
 ![Q1,Q2,Q3](https://github.com/AzizivanCoulibaly/AZIZ-COULIBALY/blob/efcaea532f643369413a1be0b04e082a5e31d6cd/Images/WhatsApp%20Image%202025-09-30%20at%2019.06.49.jpeg)
 ![Q4,Q5](https://github.com/AzizivanCoulibaly/AZIZ-COULIBALY/blob/9e5b3c568634c028adad28bfbcc43a6aef8b31eb/Images/WhatsApp%20Image%202025-09-30%20at%2019.06.54.jpeg)
 ![Q6,Q7](https://github.com/AzizivanCoulibaly/AZIZ-COULIBALY/blob/6f7af6fb0a34cf88f00e237b6e5783b538629ec6/Images/WhatsApp%20Image%202025-09-30%20at%2019.06.56.jpeg)
@@ -78,6 +93,11 @@ https://raw.githubusercontent.com/azizivancoulibaly/BI-Data-Visualisation-Analys
 ![Q14,Q15](https://github.com/AzizivanCoulibaly/AZIZ-COULIBALY/blob/6f7af6fb0a34cf88f00e237b6e5783b538629ec6/Images/WhatsApp%20Image%202025-09-30%20at%2019.07.00-2.jpeg)
 
 Visualisations dans Power BI : histogrammes, cartes, Treemap, Filtre
+Certains visuel sont volontairement dissociées de certains filtres afin de préserver une lecture stratégique globale .
+En effet, Le graphique représentant l'Evolution du CA au fil des mois est indépendant du filtre "Mois" car cela nous permet de conserver une vision complète des tendances temporelles tout en garantissant une analyse de la dynamique globale du business .
+Aussi, la treemap utilisée pour visualisation la repartition total du CA par catégorie de produits (En pourcentage) est indépendante du filtre catégorie de Articles pour les mêmes raisons
+[Imgur](https://imgur.com/bh6xBVN) 
+[Imgur](https://imgur.com/idxYSQY)
 [🌐 Accéder au visuel](https://drive.google.com/drive/folders/1wVMY45d3gs_bTIdUYqQ7uSHOWxGzJt9-?usp=share_link)
 ![Power BI visuel](https://github.com/AzizivanCoulibaly/AZIZ-COULIBALY/blob/162b5f6011e88797ffc6c686e0ff1d9b0b2ce1a0/Images/Vente%20au%20continent.PNG)
 ![Power BI visuel](https://github.com/AzizivanCoulibaly/AZIZ-COULIBALY/blob/3092e31028e92708d3f7b9b110787dd19fc25eed/Images/Vente%20au%20continent%20Asie_stylo%20et%20chaussure.PNG)
