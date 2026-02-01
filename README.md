@@ -31,8 +31,8 @@
   - Standardisation des pays (première lettre en majuscule)  
   - Promotion de la première ligne comme en-tête  
 ##### Nettoyage des données  
- ---
-[Imgur](https://imgur.com/Sfa9BqP) 
+ -
+  [Imgur](https://imgur.com/Sfa9BqP) 
  ---
  [Imgur](https://imgur.com/XZTw9XK) 
 ![Nettoyage pays-continent](
