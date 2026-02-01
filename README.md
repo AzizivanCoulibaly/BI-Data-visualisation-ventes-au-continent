@@ -20,6 +20,7 @@
 **Importation des données (Power Query)**  
 - Importation depuis un dossier contenant les 4 fichiers texte (ventes 2019–2022 par continent)  
 - Importation de la table pays–continent (2 colonnes : Pays, Continent)  
+[Imgur](https://imgur.com/ryrRvzw)
 
 **Combinaison et nettoyage (Power Query)**  
 - Combinaison des 4 tables de ventes (“Afrique”, “Europe”, “Asie”, “Amérique”) → structure identique (Date, Pays, Qte, Prix unitaire)
