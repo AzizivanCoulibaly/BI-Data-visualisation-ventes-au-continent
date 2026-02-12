@@ -5,9 +5,16 @@
 ### Données brutes  
 [🌐 Télécharger le dataset complet](https://drive.google.com/drive/folders/1wVMY45d3gs_bTIdUYqQ7uSHOWxGzJt9-?usp=share_link)
 
+### Contexte & Besoin
+- Analyse de ventes Spontanés
+- Conception de Dashboard intuitif
+- Performance du rapport et des requêtes
+- Fiabilité des données mais aucune necessité de les avoir en temps réel
+- Mesure DAX complexe, Analyse temporelle
+
 
 ### Problème rencontré  
-- Données brutes sous forme de fichiers texte dispersés (un fichier par continent : Afrique, Europe, Asie, Amérique)  
+- Données brutes sous forme de fichiers texte dispersés et stocké en local (un fichier par continent : Afrique, Europe, Asie, Amérique)  
 - Table de correspondance pays–continent séparée (2 colonnes : Pays, Continent)  
 - Volume total de données : **4 millions de lignes** → limite technique d’Excel (1 million de lignes max)  
 - Fichiers lourds et éparpillés, mais nécessité de connecter les ventes aux continents pour l’analyse
@@ -18,7 +25,7 @@
 ### Étapes de traitement  
 
 **Importation des données (Power Query)**  
-- Importation depuis un dossier contenant les 4 fichiers texte (ventes 2019–2022 par continent)  
+- Importation à partir  (dossier contenant 4 fichiers texte, ventes 2019:2022 par continent)  
 - Importation de la table pays–continent (2 colonnes : Pays, Continent)  
 [Imgur](https://imgur.com/ryrRvzw)
 [Imgur](https://imgur.com/uxEA3LL)
@@ -66,7 +73,7 @@
 - `Ecart = [CA] - [CA N-1]`  
 - `Part continent = DIVIDE([CA], CALCULATE([CA], ALL(PaysContinent[Continent])))`  
 
-**Analyse (Excel & Power BI)**  
+**Analyse (Excel)**  
 - Analyse via Tableaux Croisés Dynamiques (Excel) et réponse aux problématiques métiers (15 Questions)
 ##### Questions et réponses (Métier) 
 Q1,Q2,Q3 [Imgur](https://imgur.com/gN7z9k1) 
@@ -79,11 +86,12 @@ Q14, Q15 [Imgur](https://imgur.com/VlLU4Xz)
 
 [🌐 Accéder aux analyses excel](https://drive.google.com/drive/folders/1wVMY45d3gs_bTIdUYqQ7uSHOWxGzJt9-?usp=share_link)
 
-**Visualisations dans Power BI** : histogrammes, cartes, Treemap, Filtre
-- Mode de connexion : Import
-- Modèle de donnée : Modèle semantique, Star Schema
+**Visualisations Power BI** : histogrammes, cartes, Treemap, Filtre
+- Mode de connexion : Import (les données sont stockées de manière local à partir de fichiers excel,de plus ce mode de connexion favorise la performance du rapport sur que le besoin exprimé ne necessite pas de donnée en temps réel)
+- Modèle de donnée : Modèle semantique
+- Type de modèle : Star Schema
   
-Certains visuel sont volontairement dissociées de certains filtres afin de préserver une lecture stratégique globale .
+Certaines interractions ont été modifié volontairement de sorte à ce que les visuels concernés soient dissociées de certains filtres afin de préserver une lecture stratégique globale .
 En effet, Le graphique représentant l'Evolution du CA au fil des mois est indépendant du filtre "Mois" car cela nous permet de conserver une vision complète des tendances temporelles tout en garantissant une analyse de la dynamique globale du business .
 Aussi, la treemap utilisée pour visualisation la repartition total du CA par catégorie de produits (En pourcentage) est indépendante du filtre catégorie de Articles pour les mêmes raisons
 [Imgur](https://imgur.com/bh6xBVN) 
