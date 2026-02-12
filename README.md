@@ -94,7 +94,7 @@ Q14, Q15 [Imgur](https://imgur.com/VlLU4Xz)
 Nous avons repris le même modèle de donnée précédent (Voir Modélisation Power Pivot) ainsi que tous ces caractéristiques
   
 Certaines interractions ont été modifié volontairement de sorte à ce que les visuels concernés soient dissociées de certains filtres afin de préserver une lecture stratégique globale .
-En effet, Le graphique représentant l'Evolution du CA au fil des mois est indépendant du filtre "Mois" car cela nous permet de conserver une vision complète des tendances temporelles tout en garantissant une analyse de la dynamique globale du business .
+En effet, Le graphique représentant l'Evolution du CA au fil des mois est indépendant du filtre "Mois" car cela nous permet de conserver une vision complète des tendances temporelles tout en garantissant une analyse de la dynamique globale du business.
 Aussi, la treemap utilisée pour visualisation la repartition total du CA par catégorie de produits (En pourcentage) est indépendante du filtre catégorie de Articles pour les mêmes raisons
 [Imgur](https://imgur.com/bh6xBVN) 
 [Imgur](https://imgur.com/idxYSQY)
