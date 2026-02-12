@@ -79,7 +79,10 @@ Q14, Q15 [Imgur](https://imgur.com/VlLU4Xz)
 
 [🌐 Accéder aux analyses excel](https://drive.google.com/drive/folders/1wVMY45d3gs_bTIdUYqQ7uSHOWxGzJt9-?usp=share_link)
 
-Visualisations dans Power BI : histogrammes, cartes, Treemap, Filtre
+**Visualisations dans Power BI** : histogrammes, cartes, Treemap, Filtre
+- Mode de connexion : Import
+- Modèle de donnée : Modèle semantique, Star Schema
+  
 Certains visuel sont volontairement dissociées de certains filtres afin de préserver une lecture stratégique globale .
 En effet, Le graphique représentant l'Evolution du CA au fil des mois est indépendant du filtre "Mois" car cela nous permet de conserver une vision complète des tendances temporelles tout en garantissant une analyse de la dynamique globale du business .
 Aussi, la treemap utilisée pour visualisation la repartition total du CA par catégorie de produits (En pourcentage) est indépendante du filtre catégorie de Articles pour les mêmes raisons
