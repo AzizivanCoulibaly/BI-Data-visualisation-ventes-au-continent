@@ -61,9 +61,13 @@
 [Imgur](https://imgur.com/8ywt3ZP)
 
 **Modélisation relationnelle**  
-- Table centrale : **Ventes 2019-2022**  
-  - Connectée à la **Table Date** (clé = Date)  
-  - Connectée à la **Table Pays–Continent** (clé = Pays)  
+- Table de fait : Ventes 2019-2022
+- Table de dimension 1 : Table Date (clé commune = Date)
+- Table de dimension 2 :  Table Pays–Continent (clé commune = Pays)
+- Modèle de donnée : Modèle semantique
+- Type de modèle : Star Schema
+- cardinalité : 1 à plusieurs entre les tables de dimension et la table de fait
+- relation : filtre à sens unique
 ##### Modélisation des données
 [Imgur](https://imgur.com/0dGIAjd)
 
@@ -87,9 +91,7 @@ Q14, Q15 [Imgur](https://imgur.com/VlLU4Xz)
 [🌐 Accéder aux analyses excel](https://drive.google.com/drive/folders/1wVMY45d3gs_bTIdUYqQ7uSHOWxGzJt9-?usp=share_link)
 
 **Visualisations Power BI** : histogrammes, cartes, Treemap, Filtre
-- Mode de connexion : Import (les données sont stockées de manière local à partir de fichiers excel,de plus ce mode de connexion favorise la performance du rapport sur que le besoin exprimé ne necessite pas de donnée en temps réel)
-- Modèle de donnée : Modèle semantique
-- Type de modèle : Star Schema
+Nous avons repris le même modèle de donnée précédent (Voir Modélisation Power Pivot) ainsi que tous ces caractéristiques
   
 Certaines interractions ont été modifié volontairement de sorte à ce que les visuels concernés soient dissociées de certains filtres afin de préserver une lecture stratégique globale .
 En effet, Le graphique représentant l'Evolution du CA au fil des mois est indépendant du filtre "Mois" car cela nous permet de conserver une vision complète des tendances temporelles tout en garantissant une analyse de la dynamique globale du business .
