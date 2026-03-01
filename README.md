@@ -6,37 +6,38 @@
 [🌐 Télécharger le dataset complet](https://drive.google.com/drive/folders/1wVMY45d3gs_bTIdUYqQ7uSHOWxGzJt9-?usp=share_link)
 
 ### Contexte & Besoin
-- Analyse de ventes Spontanés
-- Conception de Dashboard intuitif
-- Performance du rapport et des requêtes
-- Fiabilité des données mais aucune necessité de les avoir en temps réel
+- Analyse de ventes spontanées pour identifier tendances et optimisations business.
+- Conception de dashboards intuitifs pour une prise de décision rapide.
+- Priorité à la performance des rapports et requêtes, avec fiabilité des données (données historiques, pas de besoin en temps réel).
+- Mesures DAX complexes pour analyses temporelles et comparatives.
+- Lien business : Inspiré de mon expérience retail chez Baccarat, où j'analysais la performance commercial .
+- Fiabilité des données
 - Mesure DAX complexe, Analyse temporelle
 
 
 ### Problème rencontré  
-- Données brutes sous forme de fichiers texte dispersés et stocké en local (un fichier par continent : Afrique, Europe, Asie, Amérique)  
-- Table de correspondance pays–continent séparée (2 colonnes : Pays, Continent)  
-- Volume total de données : **4 millions de lignes** → limite technique d’Excel (1 million de lignes max)  
-- Fichiers lourds et éparpillés, mais nécessité de connecter les ventes aux continents pour l’analyse
-- Colonne pays non standardisé à cause des caractéres d'écriture Majuscule/minuscule
+- Données brutes en fichiers texte dispersés (un par continent : Afrique, Europe, Asie, Amérique).
+- Table de correspondance pays–continent séparée (colonnes : Pays, Continent).
+- Volume massif : **4 millions de lignes** – dépasse limite Excel (1M lignes max).
+- Fichiers lourds/éparpillés ; besoin de lier ventes à continents pour analyses.
+- Noms de pays non standardisés (maj/min, accents), risque d'erreurs
 
 ---
 
 ### Étapes de traitement  
 
 **Importation des données (Power Query)**  
-- Importation à partir  (dossier contenant 4 fichiers texte, ventes 2019:2022 par continent)  
-- Importation de la table pays–continent (2 colonnes : Pays, Continent)  
+- Import depuis dossier contenant 4 fichiers texte (ventes 2019-2022 par continent).
+- Import de la table pays–continent.  
 [Imgur](https://imgur.com/ryrRvzw)
 [Imgur](https://imgur.com/uxEA3LL)
 
 **Combinaison et nettoyage (Power Query)**  
 - Combinaison des 4 tables de ventes (“Afrique”, “Europe”, “Asie”, “Amérique”) → structure identique (Date, Pays, Qte, Prix unitaire)
-- Formatage des dates et des montants (devise normalisée)  
-- Standardisation des noms de pays (première lettre en majuscule)  
-- Transformation de la table pays–continent :  
-  - Standardisation des pays (première lettre en majuscule)  
-  - Promotion de la première ligne comme en-tête  
+- Formatage dates/montants (devise unifiée).
+- Standardisation pays (première lettre majuscule, trim espaces).
+- Pour table pays–continent : Promotion en-têtes, standardisation similaire.
+
 ##### Nettoyage des données  
  -
   [Imgur](https://imgur.com/Sfa9BqP) 
@@ -44,30 +45,27 @@
  [Imgur](https://imgur.com/XZTw9XK) 
 
 **Chargement des requêtes dans Power Pivot**  
-- Les données ( 4M de lignes) sont **chargées uniquement en connexion** puis ** Ajouter au modèle de donnée* pour éviter de saturer Excel  
-- Les tables utilisées dans le modèle :  
-  - Table de faits = Ventes consolidées  
-  - Table de dimension = Pays–Continent 
+- Données chargées en mode connexion pour gérer 4M lignes sans saturer Excel.
+- Ajout au modèle sémantique : Table faits = Ventes consolidées ; Dimension = Pays-Continent.
+  
 ##### Chargement des requêtes dans Power Pivot
 [Imgur](https://imgur.com/qDMLg6c) 
 
 **Table calendrier (Power Pivot)**  
-- Création d’une table calendrier indépendante pour gérer le temps efficacement  
-- Étendue : 2019 → 2030 (anticipation des années futures)  
-- Évite d’ajouter des colonnes calculées dans la table de faits; une nouvelle colonne implique qu'elle s'étende sur 4 million de ligne
-- Ajout d'une colonne semestre pour affiner les analyses
+- Création indépendante (2019–2030) pour scalabilité et performance (évite colonnes calculées sur 4M lignes).
+- Colonnes ajoutées : Semestre, Trimestre, pour analyses affinées.
+
 ##### Table Calendrier
 [Imgur](https://imgur.com/2bqZsAC)
 [Imgur](https://imgur.com/8ywt3ZP)
 
 **Modélisation relationnelle**  
-- Table de fait : Ventes 2019-2022
-- Table de dimension 1 : Table Date (clé commune = Date)
-- Table de dimension 2 :  Table Pays–Continent (clé commune = Pays)
 - Modèle de donnée : Modèle semantique
-- Type de modèle : Star Schema
-- cardinalité : 1 à plusieurs entre les tables de dimension et la table de fait
-- relation : filtre à sens unique
+- Schéma en étoile (Star Schema) : Faits (Ventes) reliés à Dimensions (Calendar via Date ; Pays-Continent via Pays).
+- Cardinalité : 1:N (dimensions vers table de faits).
+- Filtrage : Sens unique pour efficacité.
+- Vision governance : Prêt pour RLS (ex. : filtrer par continent pour accès sécurisé en équipe).
+  
 ##### Modélisation des données
 [Imgur](https://imgur.com/0dGIAjd)
 
@@ -113,9 +111,13 @@ Aussi, la treemap utilisée pour visualisation la repartition total du CA par ca
 - Adoption facilitée grâce à la disponibilité des données dans **Excel (TCD)** et **Power BI (dashboards interactifs)**  
 
 ### Résultats personnels  
-- Maîtrise du traitement de **volumétrie importante** (4M de lignes) grâce à Power Query + Power Pivot  
-- Expérience dans la **modélisation multi-tables** et la création d’une table calendrier optimisée  
-- Développement d’une approche analytique orientée “scalabilité” (anticipation des années futures jusqu’en 2030)  
-- Renforcement de ma capacité à relier la donnée brute à des **indicateurs business pertinents**  
+- Maîtrise volumétrie importante via Power Query/Pivot.
+- Expertise modélisation multi-tables et calendrier optimisé.
+- Approche scalable (2030-ready) + lien data-business.
+- Préparation PL-300 : Couvre 80 % skills (ajout governance pour full coverage).
+  
+### Améliorations Futures
+- Migration Power BI Service : Workspaces, apps, scheduled refreshes, RLS réel pour collaboration sécurisée.
+- Intégration sources live (ex. : API pour ventes récentes).
 
 
